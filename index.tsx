@@ -1,31 +1,40 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { render } from 'react-dom';
-import Hello from './Hello';
+import ListaPersonagens from './components/lista-personagens/ListaPersonagens';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import './style.css';
 
-interface AppProps { }
+interface AppProps {}
 interface AppState {
-  name: string;
+  navigation: string;
 }
 
-class App extends Component<AppProps, AppState> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: 'React'
-    };
-  }
+function App(props: AppProps) {
+  const [appState, setAppState] = useState<AppState>({ navigation: 'list' });
 
-  render() {
-    return (
-      <div>
-        <Hello name={this.state.name} />
-        <p>
-          Start editing to see some magic happen :)
-        </p>
-      </div>
-    );
-  }
+  const onNavigationSwitchChange = () => {
+    setAppState({
+      ...appState,
+      navigation: appState.navigation === 'list' ? 'grid' : 'list'
+    });
+  };
+
+  return (
+    <div>
+      <header>
+        <h1>Star Wars</h1>
+        <span className="navigation-switch">
+          <label className="switch">
+            <input type="checkbox" onChange={onNavigationSwitchChange} />
+            <span className="slider" />
+          </label>
+        </span>
+      </header>
+      <main>
+        <ListaPersonagens mode={appState.navigation} />
+      </main>
+    </div>
+  );
 }
 
 render(<App />, document.getElementById('root'));
