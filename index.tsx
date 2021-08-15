@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { render } from 'react-dom';
 import ListaPersonagens from './components/lista-personagens/ListaPersonagens';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import stormtrooperImg from './assets/stormtrooper.png';
 import './style.css';
 
 interface AppProps {}
@@ -22,7 +23,7 @@ function App(props: AppProps) {
   return (
     <div>
       <header>
-        <h1>Star Wars</h1>
+        <h1><img src={stormtrooperImg} alt="" /></h1>
         <span className="navigation-switch">
           <label className="switch">
             <input type="checkbox" onChange={onNavigationSwitchChange} />
