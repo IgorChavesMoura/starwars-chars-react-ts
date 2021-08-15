@@ -26,14 +26,14 @@
 }
 
 .lista-personagens-dropdown {
-
   display: flex;
-  width: 97%;
+  justify-content: center;
+  width: 92%;
 
   select {
     border-radius: 3px;
     width: 75%;
-    height: 30px;
+    height: 45px;
   }
 
   button {
@@ -50,11 +50,21 @@
     flex: 1;
 
     margin-left: 5px;
+
+    transition: all 250ms linear;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:disabled {
+      pointer-events: none;
+      background-color: #ccc;
+    }
   }
 }
 
 .lista-personagens {
-
   width: 100%;
 
   &.list {
@@ -95,9 +105,14 @@
 }
 
 @media only screen and (max-width: 768px) {
+  .lista-personagens-dropdown {
+    width: 97%;
+  }
+
   .lista-personagens {
     &.list {
       align-items: flex-start;
+      margin-left: 2%;
     }
   }
 }

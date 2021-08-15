@@ -23,7 +23,10 @@ function App(props: AppProps) {
   return (
     <div>
       <header>
-        <h1><img src={stormtrooperImg} alt="" /></h1>
+        <img
+          src="https://github.com/IgorChavesMoura/starwars-chars-react-ts/blob/master/assets/stormtrooper.png?raw=true"
+          alt=""
+        />
         <span className="navigation-switch">
           <label className="switch">
             <input type="checkbox" onChange={onNavigationSwitchChange} />
